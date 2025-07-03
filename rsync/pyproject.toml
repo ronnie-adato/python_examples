@@ -1,0 +1,36 @@
+[project]
+name = "rsync_like"
+version = "0.1.0"
+description = "A simplified rsync-like file synchronization tool in Python."
+authors = [
+    { name = "Ronnie Adato", email = "ronnie.adato@gmail.com" }
+]
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = []
+
+[project.optional-dependencies]
+test = [
+    "pytest",
+    "pytest-asyncio"
+]
+dev = [
+    "ruff",
+    "autopep8"
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 120
+
+[tool.autopep8]
+max_line_length = 120
+
+[tool.rsync_like.logging]
+level = "INFO"
+filename = "rsync.log"
+max_bytes = 0x10000
+backup_count = 0x10
+format = "%(asctime)s %(levelname)s [%(name)s] %(message)s"
